@@ -1,8 +1,8 @@
 // base code of webpack to multiple configs
 // the estlint come from https://github.com/wesbos/eslint-config-wesbos
 const path = require('path');
-const webpack = require('webpack');
-const merge = require("webpack-merge");
+// const webpack = require('webpack');
+const { merge } = require("webpack-merge");
 
 // if Used, install plugin as dev-dependency
 // const CopyWebpackPlugin = require('copy-webpack-plugin');
@@ -79,10 +79,9 @@ module.exports = env => {
       plugins: [
         new HtmlWebpackPlugin({
           inject: true,
-          template: './src/index.html',
-          filename: './index.html',
+          template: './public/index.html',
+          filename: 'index.html',
         }),
-        // if Used, install plugin as dev-dependency
         // new webpack.DefinePlugin({
         //   'process.env.VERSION': JSON.stringify(env.VERSION),
         //   'process.env.PLATFORM': JSON.stringify(env.PLATFORM),
