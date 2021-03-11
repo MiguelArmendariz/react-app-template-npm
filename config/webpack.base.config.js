@@ -10,10 +10,15 @@ const { merge } = require('webpack-merge');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+// PortSync search for the next open port if used
+const portFinderSync = require('portfinder-sync');
+
 const APP_DIR = path.resolve(__dirname, '../src');
+const PREFERED_PORT = 3000;
+const PORT = portFinderSync.getPort(PREFERED_PORT);
 
 module.exports = env => {
-  const { PLATFORM, VERSION } = env;
+  const { PLATFORM } = env;
   return merge([
     {
       entry: ['@babel/polyfill', APP_DIR],
@@ -21,7 +26,10 @@ module.exports = env => {
         publicPath: '/',
       },
       devServer: {
+        host: '0.0.0.0',
+        port: PORT,
         disableHostCheck: true,
+        public: `localhost:${PORT}`,
       },
       module: {
         rules: [
@@ -93,8 +101,8 @@ module.exports = env => {
           template: './public/index.html',
           filename: 'index.html',
         }),
+        // Define env variables here.
         // new webpack.DefinePlugin({
-        //   'process.env.VERSION': JSON.stringify(env.VERSION),
         //   'process.env.PLATFORM': JSON.stringify(env.PLATFORM),
         // }),
         // if Used, install plugin as dev-dependency
