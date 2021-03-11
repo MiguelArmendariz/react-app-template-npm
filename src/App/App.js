@@ -1,5 +1,5 @@
 import React from 'react';
 
-const app = () => <div>React-app-template</div>;
+const App = () => <div>React-app-template</div>;
 
-export default app;
+export default App;
