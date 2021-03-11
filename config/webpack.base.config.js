@@ -1,12 +1,13 @@
+/* eslint-disable import/no-extraneous-dependencies */
 // base code of webpack to multiple configs
 // the estlint come from https://github.com/wesbos/eslint-config-wesbos
 const path = require('path');
 // const webpack = require('webpack');
-const { merge } = require("webpack-merge");
+const { merge } = require('webpack-merge');
 
 // if Used, install plugin as dev-dependency
 // const CopyWebpackPlugin = require('copy-webpack-plugin');
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const APP_DIR = path.resolve(__dirname, '../src');
@@ -29,46 +30,56 @@ module.exports = env => {
             test: /\.js$/,
             exclude: /node_modules/,
             use: {
-              loader: 'babel-loader'
-            }
+              loader: 'babel-loader',
+            },
           },
-          // -- Styles 
+          // -- Styles
           {
             test: /\.scss$/,
             exclude: /\.module.scss$/,
             use: [
-              PLATFORM === 'production' ? MiniCssExtractPlugin.loader : 'style-loader',
+              PLATFORM === 'production'
+                ? MiniCssExtractPlugin.loader
+                : 'style-loader',
               'css-loader',
-              'sass-loader'
-            ]
+              'sass-loader',
+            ],
           },
           {
             test: /\.module.scss$/,
             use: [
-              { loader: PLATFORM === 'production' ? MiniCssExtractPlugin.loader : 'style-loader' },
+              {
+                loader:
+                  PLATFORM === 'production'
+                    ? MiniCssExtractPlugin.loader
+                    : 'style-loader',
+              },
               {
                 loader: 'css-loader',
                 options: {
                   modules: {
                     mode: 'local',
-                    localIdentName: PLATFORM === 'production' ? '[hash:base64]' : '[path][name]__[local]'
+                    localIdentName:
+                      PLATFORM === 'production'
+                        ? '[hash:base64]'
+                        : '[path][name]__[local]',
                   },
-                }
+                },
               },
               {
                 loader: 'sass-loader',
                 options: {
-                  sourceMap: PLATFORM === 'production' ? false : true
-                }
-              }
-            ]
+                  sourceMap: PLATFORM !== 'production',
+                },
+              },
+            ],
           },
           // -- Assets
           {
             test: /\.(png|svg|jpg|gif)$/,
-            use: ['file-loader']
-          }
-        ]
+            use: ['file-loader'],
+          },
+        ],
       },
       // resolve: {
       //   alias: {
@@ -89,6 +100,6 @@ module.exports = env => {
         // if Used, install plugin as dev-dependency
         // new CopyWebpackPlugin({ patterns: [{ from: 'src/assets' }] }),
       ],
-    }
-  ])
+    },
+  ]);
 };
