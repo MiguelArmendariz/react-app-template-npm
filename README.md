@@ -21,6 +21,8 @@ import styles from 'FileName.module.scss';
 <div className={styles.YourClass}> Bla bla bla </div>
 ```
 
+**THIS WAS CREATED USING NODE 12.11.1**
+
 #### Recommendations
 
 I personally like to use **npm-check** package because it offers a way to visualize which package to update and it highlights
