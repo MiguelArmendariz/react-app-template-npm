@@ -81,12 +81,12 @@ module.exports = env => {
           },
         ],
       },
-      // resolve: {
-      //   alias: {
-      //     "identifier": path.resolve(__dirname, 'Route'),
-      //     "@assets": path.resolve(__dirname, 'src/assets'),
-      //   }
-      // },
+      resolve: {
+        alias: {
+          '@': path.resolve(__dirname, '../src'),
+          '@assets': path.resolve(__dirname, '../src/Static/Assets'),
+        },
+      },
       plugins: [
         new HtmlWebpackPlugin({
           inject: true,
