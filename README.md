@@ -12,8 +12,7 @@ This project is a basic template for a react application using webpack.
 
 #### Important Notes
 
-* The **src folder** contains an App folder similar to create-react-app
-* The **App.scss** contains a font import and a body styling **(You might want to change this).**
+* The **src folder** contains an App folder similar to create-react-app.
 * I mostly use scss so if css does not work, let me know.
 * To use scss modules create a file with a name: ```YourName.module.scss```, this way you can use it like:
 ```
