@@ -1,22 +1,22 @@
 # react-app-template
-This project is a basic template for a react application using webpack.
+This project is a basic template for a react application using webpack, and
+npm as package manager.
 
 ## Content
-* Webpack configuration for local and production.
+* Webpack configuration for local and prebuild.
 * Public folder like create-react-app.
 * Src folder without file structuring.
 * Babel configuration to work with react.
 * Eslint with basic configuration **using Wesbos**
-* I believe the template works with bot css and scss (including scss modules).
+* The template currently works with SCSS but you can easily add configuration to support CSS files.
 * MIT license.
 
 #### Important Notes
 
 * The **src folder** contains an App folder similar to create-react-app.
-* I mostly use scss so if css does not work, let me know.
-* To use scss modules create a file with a name: ```YourName.module.scss```, this way you can use it like:
+* To use scss modules create a file with a name: ```FileName.module.scss```, this way you can use it like:
 ```
-import styles from 'YourName.module.scss';
+import styles from 'FileName.module.scss';
 
 <div className={styles.YourClass}> Bla bla bla </div>
 ```
