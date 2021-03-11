@@ -1,6 +1,6 @@
-# react-app-template
+# react-app-template-npm
 This project is a basic template for a react application using webpack, and
-npm as package manager.
+npm as package manager. That's why the repository name has npm at the end.
 
 ## Content
 * Webpack configuration for local and prebuild.
