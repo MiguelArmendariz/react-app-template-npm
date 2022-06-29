@@ -1,3 +1,5 @@
+# This project is no longer being mantained as I opted to use tailwindcss + yarn + typescript in my projects.
+
 # react-app-template-npm
 This project is a basic template for a react application using webpack, and
 npm as package manager. That's why the repository name has npm at the end.
